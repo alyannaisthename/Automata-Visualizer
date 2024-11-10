@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automata Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Automata Visualizer</h1>
+        <h4>(this works on computers)</h4>
+        <div class="input-section">
+            <form id="automataForm">
+                <label for="states">Enter States (comma separated):
+                    <span class="tooltip" title="Use comma-separated values (e.g., q0,q1,q2)">?</span>
+                </label>
+                <input type="text" id="states" placeholder="e.g. q0,q1,q2" required>
+
+                <label for="alphabet">Enter Alphabet (comma separated):
+                    <span class="tooltip" title="Use comma-separated values (e.g. a,b)">?</span>
+                </label>
+                <input type="text" id="alphabet" placeholder="e.g. a,b" required>
+
+                <label for="automataType">Select Automata Type:</label>
+                <select id="automataType">
+                    <option value="dfa">DFA</option>
+                    <option value="nfa">NFA</option>
+                </select>
+
+                <button type="submit">Generate Transition Table</button>
+                <button type="button" id="resetButton">Reset</button>
+            </form>
+            <p id="errorMessage" class="error-message"></p>
+        </div>
+        
+        <div id="table-section">
+            <h2>Transition Table</h2>
+            <label id="finalStatesCheckboxLabel" style="display:none;">
+                <input type="checkbox" id="finalStatesCheckbox" disabled checked> Note! Checkbox for Final States
+            </label>
+            <div id="transitionTable"></div>
+            <button type="button" id="generateDiagramButton">Generate Transition Diagram</button>
+        </div>        
+        
+        <div id="diagram-section">
+            <h2>Transition Diagram</h2>
+            <div class="state-note">
+                <p><span class="yellow-circle"></span> Yellow for Initial State</p>
+                <p><span class="green-circle"></span> Green for Final States</p>
+            </div>            
+            <canvas id="transitionDiagram" width="800" height="600"></canvas>
+            <button type="button" id="exportDiagramButton">Export Diagram</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
